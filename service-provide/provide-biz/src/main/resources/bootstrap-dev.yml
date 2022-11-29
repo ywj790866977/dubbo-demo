@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      server-addr: nacos.k8s.100bm.cn:8848
+      discovery:
+        namespace: dubbo-demo
+        group: app
+      config:
+        namespace: dubbo-demo
+        group: app
+        file-extension: yml
+        # 引入公共配置，基础设施。如 MQ Redis Dubbo 的配置信息
+        extension-configs:
+          - data-id: common.yml
+            group: app
+            refresh: true
+
