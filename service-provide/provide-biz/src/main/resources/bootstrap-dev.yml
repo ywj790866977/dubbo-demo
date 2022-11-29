@@ -17,3 +17,18 @@ spring:
             group: app
             refresh: true
 
+dubbo:
+  # Dubbo Protocol
+  protocol:
+    name: dubbo
+    ## Random port
+    port: -1
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}?username=${spring.cloud.nacos.username}&password=${spring.cloud.nacos.password}
+    parameters:
+      namespace: dubbo-demo
+  application:
+    name: ${spring.application.name}
+  scan:
+    #这里是表明RPC接口包的package
+    base-packages: com.qxnw.dubbo
